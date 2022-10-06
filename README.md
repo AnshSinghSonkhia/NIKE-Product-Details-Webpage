@@ -1,2 +1,2 @@
-# NIKE-Product-Details-Webpage
+# NIKE Product Details Webpage
 A Mobile First Responsive Website.
