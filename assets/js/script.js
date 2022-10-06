@@ -99,6 +99,7 @@ sliderEnd();
  */
 
 const totalPriceElem = document.querySelector("[data-total-price]");
+const maxPriceDel = document.querySelector("[data-max-price-del]");   //#2
 const qtyElem = document.querySelector("[data-qty]");
 const qtyMinusBtn = document.querySelector("[data-qty-minus]");
 const qtyPlusBtn = document.querySelector("[data-qty-plus]");
@@ -112,12 +113,20 @@ let productPrice = 125;
 // set the initial total price
 let totalPrice = 125;
 
+// set the product default Max Price    //#2
+let maxPrice = 250;                     //#2      
+
+// set the initial Max Price    //#2
+let intialMaxPrice = 250;       //#2
+
 const increaseProductQty = function () {
   qty++;
   totalPrice = qty * productPrice;
+  intialMaxPrice = qty * maxPrice;      //#2
 
   qtyElem.textContent = qty;
   totalPriceElem.textContent = `$${totalPrice}.00`;
+  maxPriceDel.textContent = `$${intialMaxPrice}.00`;      //#2
 }
 
 addEventOnElem(qtyPlusBtn, "click", increaseProductQty);
@@ -125,9 +134,11 @@ addEventOnElem(qtyPlusBtn, "click", increaseProductQty);
 const decreaseProductQty = function () {
   if (qty > 1) qty--;
   totalPrice = qty * productPrice;
+  intialMaxPrice = qty * maxPrice;      //#2
 
   qtyElem.textContent = qty;
   totalPriceElem.textContent = `$${totalPrice}.00`;
+  maxPriceDel.textContent = `$${intialMaxPrice}.00`;      //#2
 }
 
 addEventOnElem(qtyMinusBtn, "click", decreaseProductQty);
